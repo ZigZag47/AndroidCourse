@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="hello">Hello Again!</string>
+    <string name="button1">Button 1</string>
+    <string name="button2">Button 2</string>
+    <string name="auch">Auch!</string>
+    <string name="fragment_one_title">I am fragment one!</string>
+    <string name="fragment_two_title">I am fragment two!</string>
+    <string name="replace_me">Replace me</string>
+    <string name="i_am_tired">I am tired.\nLet\'s go back to Fragment 1</string>
+    <string name="stop_activity">Stop activity!</string>
+    <string name="i_am_batman">I am Batman!</string>
+</resources>
