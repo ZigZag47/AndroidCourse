@@ -1,4 +1,4 @@
-package com.example.gabriel_cst.myapplication;
+package com.example.gabriel_cst.myapplication.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,6 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.gabriel_cst.myapplication.helpers.Constants;
+import com.example.gabriel_cst.myapplication.adapters.CustomAdapter;
+import com.example.gabriel_cst.myapplication.R;
 
 import java.util.ArrayList;
 

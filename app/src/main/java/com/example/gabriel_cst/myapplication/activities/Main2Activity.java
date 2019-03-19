@@ -1,4 +1,4 @@
-package com.example.gabriel_cst.myapplication;
+package com.example.gabriel_cst.myapplication.activities;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -6,8 +6,14 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import com.example.gabriel_cst.myapplication.helpers.Constants;
+import com.example.gabriel_cst.myapplication.interfaces.OnActivityFragmentCommunication;
+import com.example.gabriel_cst.myapplication.R;
+import com.example.gabriel_cst.myapplication.fragments.FragmentFour;
+import com.example.gabriel_cst.myapplication.fragments.FragmentOne;
+import com.example.gabriel_cst.myapplication.fragments.FragmentThree;
+import com.example.gabriel_cst.myapplication.fragments.FragmentTwo;
 
 public class Main2Activity extends AppCompatActivity implements OnActivityFragmentCommunication {
 

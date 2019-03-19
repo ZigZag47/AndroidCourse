@@ -1,4 +1,4 @@
-package com.example.gabriel_cst.myapplication;
+package com.example.gabriel_cst.myapplication.interfaces;
 
 public interface OnActivityFragmentCommunication {
     void killYourself();

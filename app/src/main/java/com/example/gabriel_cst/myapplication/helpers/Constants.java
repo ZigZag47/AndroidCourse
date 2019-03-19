@@ -1,4 +1,4 @@
-package com.example.gabriel_cst.myapplication;
+package com.example.gabriel_cst.myapplication.helpers;
 
 public class Constants {
 

@@ -1,18 +1,19 @@
-package com.example.gabriel_cst.myapplication;
+package com.example.gabriel_cst.myapplication.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.gabriel_cst.myapplication.helpers.Constants;
+import com.example.gabriel_cst.myapplication.adapters.CustomAdapter;
+import com.example.gabriel_cst.myapplication.R;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,7 @@ public class FragmentFour extends Fragment {
                 mArray.add(getString(R.string.i_am_batman));
 
                 customAdapter.notifyDataSetChanged();
+                rvList.scrollToPosition(mArray.size() - 1);
             }
         });
 

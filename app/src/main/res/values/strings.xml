@@ -14,4 +14,5 @@
     <string name="stop_activity">Stop activity!</string>
     <string name="i_am_batman">I am Batman!</string>
     <string name="add_fragment_one">Add Fragment One</string>
+    <string name="add_item_to_recycler">Add Element</string>
 </resources>

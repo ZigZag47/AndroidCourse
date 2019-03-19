@@ -1,4 +1,4 @@
-package com.example.gabriel_cst.myapplication;
+package com.example.gabriel_cst.myapplication.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.gabriel_cst.myapplication.helpers.Constants;
+import com.example.gabriel_cst.myapplication.interfaces.OnActivityFragmentCommunication;
+import com.example.gabriel_cst.myapplication.R;
 
 public class FragmentTwo extends Fragment implements View.OnClickListener {
 
