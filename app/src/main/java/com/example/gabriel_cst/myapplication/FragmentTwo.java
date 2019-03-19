@@ -55,6 +55,9 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
         goBackButton = view.findViewById(R.id.btn_go_back);
         goBackButton.setOnClickListener(this);
 
+        Button removeFrOne = view.findViewById(R.id.btn_remove_fragment_one);
+        removeFrOne.setOnClickListener(this);
+
         Bundle bundle = getArguments();
         if(bundle != null) {
             String dataReceived = bundle.getString(Constants.ARG_MY_KEY);
@@ -72,11 +75,39 @@ public class FragmentTwo extends Fragment implements View.OnClickListener {
         mOnActivityFragmentCommunication.onPopFragment();
     }
 
+    private void gotoFragmentThree(){
+        if(mOnActivityFragmentCommunication == null){
+            return;
+        }
+
+        mOnActivityFragmentCommunication.onReplaceFragment(Constants.FRAGMENT_THREE_TAG);
+    }
+
+    private void gotoFragmentFour(){
+        if(mOnActivityFragmentCommunication == null){
+            return;
+        }
+
+        mOnActivityFragmentCommunication.onReplaceFragment(Constants.FRAGMENT_FOUR_TAG);
+    }
+
+    private void removeFragmentOne(){
+        if(mOnActivityFragmentCommunication == null){
+            return;
+        }
+
+        mOnActivityFragmentCommunication.onRemoveFragment(Constants.FRAGMENT_ONE_TAG);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_go_back:
-                gotoFragmentOne();
+                gotoFragmentFour();
+                break;
+
+            case R.id.btn_remove_fragment_one:
+                removeFragmentOne();
                 break;
         }
     }

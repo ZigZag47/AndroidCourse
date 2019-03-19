@@ -96,6 +96,6 @@ public class FragmentOne extends Fragment {
             return;
         }
 
-        onActivityFragmentCommunication.onReplaceFragment(Constants.FRAGMENT_TWO_TAG);
+        onActivityFragmentCommunication.onAddFragment(Constants.FRAGMENT_TWO_TAG);
     }
 }

@@ -8,6 +8,10 @@
     <string name="fragment_two_title">I am fragment two!</string>
     <string name="replace_me">Replace me</string>
     <string name="i_am_tired">I am tired.\nLet\'s go back to Fragment 1</string>
+    <string name="go_to_fr_3">Go to Fragment 3</string>
+    <string name="go_to_fr_4">Go to Fragment 4</string>
+    <string name="remove_fr_1">Remove Fragment 1</string>
     <string name="stop_activity">Stop activity!</string>
     <string name="i_am_batman">I am Batman!</string>
+    <string name="add_fragment_one">Add Fragment One</string>
 </resources>

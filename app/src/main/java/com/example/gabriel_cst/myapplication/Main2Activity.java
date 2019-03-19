@@ -6,19 +6,38 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class Main2Activity extends AppCompatActivity implements OnActivityFragmentCommunication {
+
+    FragmentManager mFragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        onReplaceFragment(Constants.FRAGMENT_ONE_TAG);
+        onAddFragment(Constants.FRAGMENT_ONE_TAG);
+    }
+
+    private void addFragment(Fragment fragment, String TAG, boolean addToBackstack) {
+
+        FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
+
+        mFragmentTransaction.add(R.id.fragments_container,
+                fragment,
+                TAG);
+
+        if(addToBackstack) {
+            mFragmentTransaction.addToBackStack(TAG);
+        }
+
+        mFragmentTransaction.commit();
     }
 
     private void replaceFragment(Fragment fragment, String TAG) {
-        FragmentManager mFragmentManager = getSupportFragmentManager();
+
         FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
 
         mFragmentTransaction.replace(R.id.fragments_container,
@@ -42,21 +61,49 @@ public class Main2Activity extends AppCompatActivity implements OnActivityFragme
     @Override
     public void onReplaceFragment(String TAG) {
         switch (TAG) {
-            case Constants.FRAGMENT_ONE_TAG:
-                replaceFragment(new FragmentOne(),
+            case Constants.FRAGMENT_THREE_TAG:
+                replaceFragment(FragmentThree.newInstance(getString(R.string.i_am_batman)),
                         TAG);
-            break;
+                break;
+
+            case Constants.FRAGMENT_FOUR_TAG:
+                replaceFragment(FragmentFour.newInstance(getString(R.string.i_am_batman)),
+                        TAG);
+
+                break;
+        }
+    }
+
+    @Override
+    public void onAddFragment(String TAG) {
+        switch (TAG) {
+            case Constants.FRAGMENT_ONE_TAG:
+                addFragment(new FragmentOne(),
+                        TAG,
+                        false);
+                break;
 
             case Constants.FRAGMENT_TWO_TAG:
-                replaceFragment(FragmentTwo.newInstance(getString(R.string.i_am_batman)),
-                        TAG);
-            break;
+                addFragment(FragmentTwo.newInstance(getString(R.string.i_am_batman)),
+                        TAG,
+                        true);
+                break;
         }
     }
 
     @Override
     public void onPopFragment() {
         getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void onRemoveFragment(String TAG) {
+        Fragment fragment = mFragmentManager.findFragmentByTag(TAG);
+        if (fragment != null) {
+            mFragmentManager.beginTransaction()
+                    .remove(fragment)
+                    .commit();
+        }
     }
 
 }
