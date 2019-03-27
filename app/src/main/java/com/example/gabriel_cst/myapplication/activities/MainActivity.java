@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.gabriel_cst.myapplication.helpers.Constants;
-import com.example.gabriel_cst.myapplication.R;
+import com.example.gabriel_cst.myapplication.helpers.roomDatabase.UserRepository;
+import com.example.gabriel_cst.myapplication.interfaces.OnUserRepositoryActionListener;
+import com.example.gabriel_cst.myapplication.models.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +45,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button myBtnAddUser = findViewById(R.id.btn_addUser);
+        myBtnAddUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addUserToDatabase();
+            }
+        });
+
         textViewHello = findViewById(R.id.tv_hello);
     }
 
@@ -57,4 +68,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    private void addUserToDatabase() {
+        User mUser = new User("Gabriel", "Alexandru");
+        new UserRepository(MainActivity.this)
+                .insertTask(mUser, new OnUserRepositoryActionListener() {
+                    @Override
+                    public void actionSuccess() {
+                        Toast.makeText(MainActivity.this,
+                                "Success added user!",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void actionFaailed() {
+
+                    }
+                });
+    }
+
 }

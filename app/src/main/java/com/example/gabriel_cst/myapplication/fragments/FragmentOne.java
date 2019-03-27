@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.gabriel_cst.myapplication.helpers.Constants;
+import com.example.gabriel_cst.myapplication.helpers.roomDatabase.UserRepository;
 import com.example.gabriel_cst.myapplication.interfaces.OnActivityFragmentCommunication;
 import com.example.gabriel_cst.myapplication.R;
+import com.example.gabriel_cst.myapplication.models.User;
 
 public class FragmentOne extends Fragment {
 
@@ -76,7 +78,11 @@ public class FragmentOne extends Fragment {
         });
 
         TextView mTextView = view.findViewById(R.id.tv_mytext);
-        mTextView.setText(getTag());
+//        mTextView.setText(getTag());
+
+        User mUser = new UserRepository(getContext())
+                .getUserByName("Gabriel", "Alexandru");
+
     }
 
     void stopActivity() {
