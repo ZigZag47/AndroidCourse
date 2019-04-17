@@ -1,19 +1,23 @@
 package com.example.gabriel_cst.myapplication;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
-import android.os.Bundle;
 
 import com.example.gabriel_cst.myapplication.helpers.Constants;
 import com.example.gabriel_cst.myapplication.helpers.roomDatabase.AppDatabase;
 
+import androidx.room.Room;
+
 public class ApplicationController extends Application {
 
+//  If your app runs in a single process, you should follow the singleton design pattern
+//  when instantiating an AppDatabase object.
     private static ApplicationController mInstance;
 
+//  Each RoomDatabase instance is fairly expensive,
+//  and you rarely need access to multiple instances within a single process.
     private static AppDatabase mAppDatabase;
 
-    public static ApplicationController newInstance() {
+    public static ApplicationController getInstance() {
         return mInstance;
     }
 
@@ -23,6 +27,7 @@ public class ApplicationController extends Application {
 
          mInstance = this;
 
+         // Get a database instance to work with
          mAppDatabase = Room.databaseBuilder(getApplicationContext(),
                  AppDatabase.class, Constants.DB_NAME).build();
     }

@@ -1,14 +1,18 @@
 package com.example.gabriel_cst.myapplication.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.gabriel_cst.myapplication.helpers.Constants;
@@ -22,6 +26,7 @@ public class FragmentFour extends Fragment {
     private RecyclerView rvList;
     private CustomAdapter customAdapter;
     private ArrayList<String> mArray;
+    private EditText edt_insertText;
 
     public static FragmentFour newInstance(String title) {
         FragmentFour mFragment = new FragmentFour();
@@ -54,8 +59,29 @@ public class FragmentFour extends Fragment {
 
                 customAdapter.notifyDataSetChanged();
                 rvList.scrollToPosition(mArray.size() - 1);
+
+                edt_insertText.setText(getString(R.string.i_am_batman));
             }
         });
+
+        edt_insertText = view.findViewById(R.id.edt_insertText);
+        edt_insertText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
 
         setUpRecyclerView();
     }

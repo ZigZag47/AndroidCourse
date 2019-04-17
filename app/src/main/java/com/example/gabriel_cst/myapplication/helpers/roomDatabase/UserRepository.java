@@ -7,6 +7,12 @@ import com.example.gabriel_cst.myapplication.ApplicationController;
 import com.example.gabriel_cst.myapplication.interfaces.OnUserRepositoryActionListener;
 import com.example.gabriel_cst.myapplication.models.User;
 
+import java.util.List;
+
+//A Repository mediates between the domain and data mapping layers,
+// acting like an in-memory domain object collection.
+// We access the database class and the DAO class from the repository and perform list of operations
+// such as insert, update, delete, get etc.
 public class UserRepository {
 
     private AppDatabase appDatabase;
@@ -23,7 +29,7 @@ public class UserRepository {
         return appDatabase.userDao().findByName(firstName, lastName);
     }
 
-   private class InsertTask extends AsyncTask<User, Void, Void> {
+   private class InsertTask extends AsyncTask<User, Void, List<User>> {
 
        OnUserRepositoryActionListener listener;
 
@@ -31,14 +37,19 @@ public class UserRepository {
             this.listener = listener;
         }
 
-        @Override
-        protected Void doInBackground(User... users) {
-            appDatabase.userDao().insertTask(users[0]);
-            return null;
+       @Override
+       protected void onPreExecute() {
+           super.onPreExecute();
+
+       }
+
+       @Override
+        protected List<User> doInBackground(User... users) {
+            return appDatabase.userDao().getAll();
         }
 
        @Override
-       protected void onPostExecute(Void aVoid) {
+       protected void onPostExecute(List<User> aVoid) {
            super.onPostExecute(aVoid);
 
            listener.actionSuccess();

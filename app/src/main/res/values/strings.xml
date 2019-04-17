@@ -7,6 +7,7 @@
     <string name="fragment_one_title">I am fragment one!</string>
     <string name="fragment_two_title">I am fragment two!</string>
     <string name="replace_me">Replace me</string>
+    <string name="get_to_do_items">Get To Do Items</string>
     <string name="i_am_tired">I am tired.\nLet\'s go back to Fragment 1</string>
     <string name="go_to_fr_3">Go to Fragment 3</string>
     <string name="go_to_fr_4">Go to Fragment 4</string>

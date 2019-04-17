@@ -1,10 +1,10 @@
 package com.example.gabriel_cst.myapplication.helpers.roomDatabase;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
-
 import com.example.gabriel_cst.myapplication.interfaces.UserDao;
 import com.example.gabriel_cst.myapplication.models.User;
+
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 
 @Database(entities = {User.class}, version = 1, exportSchema = false)
